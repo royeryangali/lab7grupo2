@@ -7,7 +7,7 @@ $(document).ready(function () {
     const slug = urlParams.get('slug');
 
     // TODO: Metodo para cambiar el href, cambiar de acuerdo a la conveniencia
-    $("#redirect-grafico").attr("href", '');
+    $("#redirect-grafico").attr("href",'../grafico/graficoEvolutivo.html');
 
     var bandera = document.getElementById("bandera-div");
     bandera.innerHTML = "<img src='https://www.countryflags.io/" + CC + "/flat/64.png'>"
