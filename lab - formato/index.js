@@ -14,11 +14,12 @@ $(document).ready(function () {
         $("#totalDeaths").html(data.Global.TotalDeaths);
         $("#newRecovered").html(data.Global.NewRecovered);
         $("#totalRecovered").html(data.Global.TotalRecovered);
-
+        var date = new Date();
+        var a = formatDate(date);
+        $("#titulo-resumen-global").html("Resumen Global - " + a);
         var lista = data.Countries;
         var contentHtml = "";
         listaordenada = lista.sort(compare);
-        console.log(listaordenada);
         $.each(listaordenada, function (i, country) {
             var a = i + 1;
             contentHtml += "<tr>";
@@ -30,7 +31,7 @@ $(document).ready(function () {
             contentHtml += "<td>" + country.NewConfirmed + "</td>";
             contentHtml += "<td>" + country.NewDeaths + "</td>";
             contentHtml += "<td>" + country.NewRecovered + "</td>";
-            contentHtml += "<td>" + "<a class='btn btn-primary btn-block' href='"+'detallePais/detallePais.html?name=' + country.Country +
+            contentHtml += "<td>" + "<a class='btn btn-primary btn-block' href='" + 'detallePais/detallePais.html?name=' + country.Country +
                 '&slug=' + country.Slug + '&countryCode=' + country.CountryCode + "' role = 'button'>Ver Detalles </a>" + "</td >";
             contentHtml += "<tr>";
         })
@@ -74,7 +75,9 @@ function formatDate(date) {
     if (day.length < 2)
         day = '0' + day;
     // TODO
-    return '';
+
+    var c = year + "/" + month + "/" + day;
+    return c;
 }
 
 
